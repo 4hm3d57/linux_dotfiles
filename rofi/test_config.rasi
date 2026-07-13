@@ -1,0 +1,139 @@
+/* Enable application icons globally */
+configuration {
+    modi:                        "drun,run,window";
+    show-icons:                  true;
+    icon-theme:                  "Papirus"; 
+    drun-display-format:         "{name}";
+}
+
+/*******************************************************************************
+ * ROFI Color theme (High-Density Translucency Glass Edition)
+ *******************************************************************************/
+
+* {
+    /* CHANGED: Dropped opacity from 92% to 70% to let your wallpaper peek through for the glass effect */
+    background:                  rgba ( 39, 50, 56, 70 % );
+    background-color:            @background;
+    
+    selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
+    foreground:                  rgba ( 193, 193, 193, 100 % );
+    normal-foreground:           @foreground;
+    
+    /* CHANGED: Matched the 70% opacity baseline */
+    alternate-normal-background: rgba ( 39, 50, 56, 70 % );
+    normal-background:           rgba ( 39, 50, 56, 70 % );
+    urgent-background:           rgba ( 39, 50, 56, 70 % );
+    active-background:           rgba ( 39, 50, 56, 70 % );
+    alternate-urgent-background: rgba ( 39, 50, 56, 70 % );
+    alternate-active-background: rgba ( 39, 50, 56, 70 % );
+
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-urgent-foreground:  rgba ( 255, 24, 68, 100 % );
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    urgent-foreground:           rgba ( 255, 24, 68, 100 % );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    selected-active-foreground:  rgba ( 128, 203, 196, 100 % );
+    bordercolor:                 rgba ( 39, 50, 56, 100 % );
+    alternate-normal-foreground: @foreground;
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    selected-normal-background:  rgba ( 57, 66, 73, 90 % );
+    border-color:                transparent;
+    spacing:                     2;
+    separatorcolor:              rgba ( 30, 37, 41, 100 % );
+    selected-urgent-background:  rgba ( 57, 66, 73, 90 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  rgba ( 57, 66, 73, 90 % );
+}
+
+window {
+    background-color: @background;
+    border:           2px;
+    border-color:     @border-color;
+    padding:          20px;
+    dynamic:          true;
+    width:            600px; 
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       1px solid 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      4px ;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+listview {
+    fixed-height: false;
+    border:       1px solid 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      2px ;
+    scrollbar:    false;
+    padding:      10px 0px 0px ;
+    lines:        8; 
+}
+
+element {
+    border:        0;
+    padding:       8px 12px; 
+    spacing:       10px ;
+    children:      [ "element-icon", "element-text" ];
+}
+
+element-icon {
+    background-color: transparent;
+    text-color:       inherit;
+    size:             22px ; 
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @foreground;
+}
+
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    5px 5px 10px 5px;
+    children:   [ prompt, textbox-prompt-colon, entry ];
+}
+
+entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        " : ";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
